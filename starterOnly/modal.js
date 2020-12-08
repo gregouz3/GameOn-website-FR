@@ -7,11 +7,8 @@ function editNav() {
   }
   console.log(x.className);
   console.log(document.reserve.location.value);
-
-
+  console.log(document.reserve.checkbox1.checked);
 }
-
-
 
 // DOM Elements
 const modalbg = document.querySelector(".bground");
@@ -35,20 +32,40 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
+
 function validate() {
+
   const form = document.reserve;
   const email = document.getElementById("email").value;
-  console.log(form.quantity.value);
-  if (checkEmail(email) && form.birthdate.value !== null &&form.quantity.value == 0 )
-    return true;
-  if (checkEmail(email) && form.birthdate.value !== ""&&form.location.value !== "" )
-    return true;
-  else {
-    console.log('retry ');
+  const small = document.getElementById("email").nextElementSibling;
+  const smallL = document.getElementById("v").nextElementSibling;
+  const smallHb = document.getElementById("birthdate").nextElementSibling;
+  const smallcheck = document.getElementById("vv").nextElementSibling;
+
+  if (form.checkbox1.checked == false) {
+    smallcheck.innerHTML = "Vous devez vérifier que vous acceptez les termes et conditions."
     return false;
   }
-
+  if (form.birthdate.value == "") {
+    smallHb.innerHTML = "Vous devez entrer votre dâte d'anniversaire";
+    return false;
+  }
+  if (form.location.value == "") {
+    smallL.innerHTML = "Vous devez choisir une option";
+    return false;
+  }
+  if(!checkEmail(email)) {
+    small.innerHTML = "Veuillez rentrez une adresse mail valide";
+    return false;
+  }
+  if (checkEmail(email) && form.location.value !== "" && form.birthdate.value !== "" && form.checkbox1.checked == true) {
+    return true;
+  }
+  else { 
+    return false;
+  }
 }
+
 function checkEmail(email) {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
