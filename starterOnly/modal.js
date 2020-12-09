@@ -54,12 +54,14 @@ function validate() {
     smallQt.innerHTML = "";
     smallL.innerHTML = "";
     smallcheck.innerHTML = "";
-    form.first.style.border = "2px solid red";
+    form.first.style.border = "2px solid #fe142f";
     form.last.style.border = "";
     form.email.style.border = "";
     form.birthdate.style.border = "";
     form.quantity.style.border = "";
     return false;
+  } else {
+    form.first.style.border = "2px solid #279e7a";
   }
   if (form.last.value == "" 
   || form.last.value.length < 2) {
@@ -71,12 +73,14 @@ function validate() {
     smallL.innerHTML = "";
     smallcheck.innerHTML = "";
     form.first.style.border = "";
-    form.last.style.border = "2px solid red";
+    form.last.style.border = "2px solid #fe142f";
     form.email.style.border = "";
     form.birthdate.style.border = "";
     form.quantity.style.border = "";
 
     return false;
+  }else {
+    form.last.style.border = "2px solid #279e7a";
   }
   if(!checkEmail(email)) {
     smallFirst.innerHTML = "";
@@ -88,11 +92,13 @@ function validate() {
     smallcheck.innerHTML = "";
     form.first.style.border = "";
     form.last.style.border = "";
-    form.email.style.border = "2px solid red";
+    form.email.style.border = "2px solid #fe142f";
     form.birthdate.style.border = "";
     form.quantity.style.border = "";
 
     return false;
+  } else {
+    form.email.style.border = "2px solid #279e7a";
   }
   if (form.birthdate.value == "") {
     smallFirst.innerHTML = "";
@@ -105,10 +111,12 @@ function validate() {
     form.first.style.border = "";
     form.last.style.border = "";
     form.email.style.border = "";
-    form.birthdate.style.border = "2px solid red";
+    form.birthdate.style.border = "2px solid #fe142f";
     form.quantity.style.border = "";
 
     return false;
+  }else {
+    form.birthdate.style.border = "2px solid #279e7a";
   }
  
   if (form.quantity.value == "") {
@@ -123,10 +131,10 @@ function validate() {
     form.last.style.border = "";
     form.email.style.border = "";
     form.birthdate.style.border = "";
-    form.quantity.style.border = "2px solid red";
-
-
+    form.quantity.style.border = "2px solid #fe142f";
     return false;
+  } else {
+    form.quantity.style.border = "2px solid #279e7a";
   }
   if (form.location.value == "" && form.quantity.value !== "0") {
     smallFirst.innerHTML = "";
@@ -147,7 +155,7 @@ function validate() {
     smallL.innerHTML = "";
     smallcheck.innerHTML = "Vous devez vérifier que vous acceptez les termes et conditions d'utilisation."
     return false;
-  }
+  } 
  
   if (form.first.value !== "" && 
       form.last.value !== "" && 
