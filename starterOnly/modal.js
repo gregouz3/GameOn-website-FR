@@ -54,6 +54,11 @@ function validate() {
     smallQt.innerHTML = "";
     smallL.innerHTML = "";
     smallcheck.innerHTML = "";
+    form.first.style.border = "2px solid red";
+    form.last.style.border = "";
+    form.email.style.border = "";
+    form.birthdate.style.border = "";
+    form.quantity.style.border = "";
     return false;
   }
   if (form.last.value == "" 
@@ -65,6 +70,12 @@ function validate() {
     smallQt.innerHTML = "";
     smallL.innerHTML = "";
     smallcheck.innerHTML = "";
+    form.first.style.border = "";
+    form.last.style.border = "2px solid red";
+    form.email.style.border = "";
+    form.birthdate.style.border = "";
+    form.quantity.style.border = "";
+
     return false;
   }
   if(!checkEmail(email)) {
@@ -75,6 +86,12 @@ function validate() {
     smallQt.innerHTML = "";
     smallL.innerHTML = "";
     smallcheck.innerHTML = "";
+    form.first.style.border = "";
+    form.last.style.border = "";
+    form.email.style.border = "2px solid red";
+    form.birthdate.style.border = "";
+    form.quantity.style.border = "";
+
     return false;
   }
   if (form.birthdate.value == "") {
@@ -85,6 +102,12 @@ function validate() {
     smallQt.innerHTML = "";
     smallL.innerHTML = "";
     smallcheck.innerHTML = "";
+    form.first.style.border = "";
+    form.last.style.border = "";
+    form.email.style.border = "";
+    form.birthdate.style.border = "2px solid red";
+    form.quantity.style.border = "";
+
     return false;
   }
  
@@ -96,6 +119,13 @@ function validate() {
     smallQt.innerHTML = "Vous devez sélectionner une valeur numérique";
     smallL.innerHTML = "";
     smallcheck.innerHTML = "";
+    form.first.style.border = "";
+    form.last.style.border = "";
+    form.email.style.border = "";
+    form.birthdate.style.border = "";
+    form.quantity.style.border = "2px solid red";
+
+
     return false;
   }
   if (form.location.value == "" && form.quantity.value !== "0") {
