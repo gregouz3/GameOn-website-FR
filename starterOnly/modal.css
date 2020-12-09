@@ -26,6 +26,7 @@ p {
   padding: 0.5vw;
 }
 
+
 img {
   padding-right: 1rem;
 }
@@ -535,4 +536,29 @@ footer {
 small {
   color: #fe142f;
   font-size: 15px;
+}
+
+.thxxx {
+  height: 70vh;
+  margin: 5% auto;
+  width: 100%;
+  max-width: 500px;
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+  background: #232323;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.txtThx {
+  font-size: 1.6em;
+  text-align: center;
+  margin-top: 4em;
+
 }

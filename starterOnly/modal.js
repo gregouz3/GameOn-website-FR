@@ -30,6 +30,7 @@ closeBtn.forEach((close) => close.addEventListener("click", closeModal));
 //close modal form
 function closeModal() {
   modalbg.style.display = "none";
+  window.location.reload();
 }
 
 
@@ -45,8 +46,8 @@ function validate() {
   const smallL = document.getElementById("v").nextElementSibling;
   const smallcheck = document.getElementById("vv").nextElementSibling;
 
-  if (form.first.value == "") {
-    smallFirst.innerHTML = "Vous devez rentrer votre prénom."
+  if (form.first.value == "" || form.first.value.length < 2) {
+    smallFirst.innerHTML = "Vous devez rentrer votre prénom  (minimun 2 lettres)."
     smallLast.innerHTML = "";
     small.innerHTML = "";
     smallHb.innerHTML = "";
@@ -55,9 +56,10 @@ function validate() {
     smallcheck.innerHTML = "";
     return false;
   }
-  if (form.last.value == "") {
+  if (form.last.value == "" 
+  || form.last.value.length < 2) {
     smallFirst.innerHTML = "";
-    smallLast.innerHTML = "Vous devez rentrer votre nom."
+    smallLast.innerHTML = "Vous devez rentrer votre nom (minimun 2 lettres)"
     small.innerHTML = "";
     smallHb.innerHTML = "";
     smallQt.innerHTML = "";
@@ -133,8 +135,25 @@ function validate() {
       form.location.value == "" && 
       form.checkbox1.checked == true 
   ){
-    thx();
-    return true;
+   // document.getElementById('thx').innerHTML = '';
+    document.getElementById('thx').innerHTML = `
+    <div>
+          <div class="thxxx">
+            <p class="txtThx">
+            Merci ! <br>Votre réservation a bien été enregistré.
+            <p>
+          <input
+          class="btn-submit"
+          type="submit"
+          class="button"
+          value="Quitter"
+        />
+        </div>
+    </div>
+   
+    `;
+    return false;
+
   }
   else { 
     return false;
@@ -147,6 +166,9 @@ function checkEmail(email) {
 }
 
 function thx() {
-  alert("Merci ! Votre réservation a été reçue.");
-  //modal thx ?
+
+    modalbg.style.display = "block";
+    console.log(thx);
+
+
 }
