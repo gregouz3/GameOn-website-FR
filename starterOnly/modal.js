@@ -188,12 +188,7 @@ function validate() {
         />
         </div>
     </div>
-   
     `;
-    return false;
-
-  }
-  else { 
     return false;
   }
 }
