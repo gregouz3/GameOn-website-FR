@@ -47,7 +47,7 @@ function validate() {
   const smallcheck = document.getElementById("vv").nextElementSibling;
 
   if (form.first.value == "" || form.first.value.length < 2) {
-    smallFirst.innerHTML = "Vous devez rentrer votre prénom  (minimun 2 lettres)."
+    smallFirst.innerHTML = "Vous devez rentrer votre prénom  (au minimun 2 lettres)."
     smallLast.innerHTML = "";
     small.innerHTML = "";
     smallHb.innerHTML = "";
@@ -66,7 +66,7 @@ function validate() {
   if (form.last.value == "" 
   || form.last.value.length < 2) {
     smallFirst.innerHTML = "";
-    smallLast.innerHTML = "Vous devez rentrer votre nom (minimun 2 lettres)"
+    smallLast.innerHTML = "Vous devez rentrer votre nom (au minimun 2 lettres)"
     small.innerHTML = "";
     smallHb.innerHTML = "";
     smallQt.innerHTML = "";
@@ -198,10 +198,3 @@ function checkEmail(email) {
     return re.test(email);
 }
 
-function thx() {
-
-    modalbg.style.display = "block";
-    console.log(thx);
-
-
-}
