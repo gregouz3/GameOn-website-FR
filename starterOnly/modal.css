@@ -531,3 +531,8 @@ footer {
     opacity: 1;
   }
 }
+
+small {
+  color: #fe142f;
+  font-size: 15px;
+}

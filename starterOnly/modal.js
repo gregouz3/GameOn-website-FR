@@ -36,29 +36,103 @@ function closeModal() {
 function validate() {
 
   const form = document.reserve;
+  const smallFirst = document.getElementById("first").nextElementSibling;
+  const smallLast = document.getElementById("last").nextElementSibling;
   const email = document.getElementById("email").value;
   const small = document.getElementById("email").nextElementSibling;
-  const smallL = document.getElementById("v").nextElementSibling;
   const smallHb = document.getElementById("birthdate").nextElementSibling;
+  const smallQt = document.getElementById("quantity").nextElementSibling;
+  const smallL = document.getElementById("v").nextElementSibling;
   const smallcheck = document.getElementById("vv").nextElementSibling;
 
-  if (form.checkbox1.checked == false) {
-    smallcheck.innerHTML = "Vous devez vérifier que vous acceptez les termes et conditions."
+  if (form.first.value == "") {
+    smallFirst.innerHTML = "Vous devez rentrer votre prénom."
+    smallLast.innerHTML = "";
+    small.innerHTML = "";
+    smallHb.innerHTML = "";
+    smallQt.innerHTML = "";
+    smallL.innerHTML = "";
+    smallcheck.innerHTML = "";
     return false;
   }
-  if (form.birthdate.value == "") {
-    smallHb.innerHTML = "Vous devez entrer votre dâte d'anniversaire";
-    return false;
-  }
-  if (form.location.value == "") {
-    smallL.innerHTML = "Vous devez choisir une option";
+  if (form.last.value == "") {
+    smallFirst.innerHTML = "";
+    smallLast.innerHTML = "Vous devez rentrer votre nom."
+    small.innerHTML = "";
+    smallHb.innerHTML = "";
+    smallQt.innerHTML = "";
+    smallL.innerHTML = "";
+    smallcheck.innerHTML = "";
     return false;
   }
   if(!checkEmail(email)) {
-    small.innerHTML = "Veuillez rentrez une adresse mail valide";
+    smallFirst.innerHTML = "";
+    smallLast.innerHTML = ""
+    small.innerHTML = "Vous devez rentrer une adresse mail valide";
+    smallHb.innerHTML = "";
+    smallQt.innerHTML = "";
+    smallL.innerHTML = "";
+    smallcheck.innerHTML = "";
     return false;
   }
-  if (checkEmail(email) && form.location.value !== "" && form.birthdate.value !== "" && form.checkbox1.checked == true) {
+  if (form.birthdate.value == "") {
+    smallFirst.innerHTML = "";
+    smallLast.innerHTML = ""
+    small.innerHTML = "";
+    smallHb.innerHTML = "Vous devez entrer votre dâte d'anniversaire";
+    smallQt.innerHTML = "";
+    smallL.innerHTML = "";
+    smallcheck.innerHTML = "";
+    return false;
+  }
+ 
+  if (form.quantity.value == "") {
+    smallFirst.innerHTML = "";
+    smallLast.innerHTML = ""
+    small.innerHTML = "";
+    smallHb.innerHTML = "";
+    smallQt.innerHTML = "Vous devez sélectionner une valeur numérique";
+    smallL.innerHTML = "";
+    smallcheck.innerHTML = "";
+    return false;
+  }
+  if (form.location.value == "" && form.quantity.value !== "0") {
+    smallFirst.innerHTML = "";
+    smallLast.innerHTML = ""
+    small.innerHTML = "";
+    smallHb.innerHTML = "";
+    smallQt.innerHTML = "";
+    smallL.innerHTML = "Vous devez choisir une option";
+    smallcheck.innerHTML = "";
+    return false;
+  }
+  if (form.checkbox1.checked == false) {
+    smallFirst.innerHTML = "";
+    smallLast.innerHTML = ""
+    small.innerHTML = "";
+    smallHb.innerHTML = "";
+    smallQt.innerHTML = "";
+    smallL.innerHTML = "";
+    smallcheck.innerHTML = "Vous devez vérifier que vous acceptez les termes et conditions d'utilisation."
+    return false;
+  }
+ 
+  if (form.first.value !== "" && 
+      form.last.value !== "" && 
+      checkEmail(email) && 
+      form.birthdate.value !== "" &&
+      form.quantity.value !== "" &&
+      form.location.value !== "" && 
+      form.checkbox1.checked == true 
+      || 
+      form.first.value !== "" && 
+      form.last.value !== "" && 
+      checkEmail(email) && 
+      form.birthdate.value !== "" &&
+      form.quantity.value == "0" &&
+      form.location.value == "" && 
+      form.checkbox1.checked == true 
+  ){
     thx();
     return true;
   }
@@ -71,7 +145,6 @@ function checkEmail(email) {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
 }
-
 
 function thx() {
   alert("Merci ! Votre réservation a été reçue.");
