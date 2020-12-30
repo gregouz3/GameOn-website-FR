@@ -10,8 +10,6 @@ function editNav() {
   console.log(document.reserve.checkbox1.checked);
 }
 
-
-
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
@@ -35,8 +33,23 @@ function closeModal() {
   window.location.reload();
 }
 
+function clear() {
+
+  smallFirst.innerHTML = ""
+  smallLast.innerHTML = "";
+  small.innerHTML = "";
+  smallHb.innerHTML = "";
+  smallQt.innerHTML = "";
+  smallL.innerHTML = "";
+  smallcheck.innerHTML = "";
+  form.first.style.border = "";
+  form.last.style.border = "";
+  form.email.style.border = "";
+  form.birthdate.style.border = "";
+  form.quantity.style.border = "";
+}
 function validate() {
-  
+
   const form = document.reserve;
   const smallFirst = document.getElementById("first").nextElementSibling;
   const smallLast = document.getElementById("last").nextElementSibling;
@@ -48,112 +61,56 @@ function validate() {
   const smallcheck = document.getElementById("vv").nextElementSibling;
 
   if (form.first.value == "" || form.first.value.length < 2) {
+    clear();
     smallFirst.innerHTML = "Vous devez rentrer votre prénom  (au minimun 2 lettres)."
-    smallLast.innerHTML = "";
-    small.innerHTML = "";
-    smallHb.innerHTML = "";
-    smallQt.innerHTML = "";
-    smallL.innerHTML = "";
-    smallcheck.innerHTML = "";
     form.first.style.border = "2px solid #fe142f";
-    form.last.style.border = "";
-    form.email.style.border = "";
-    form.birthdate.style.border = "";
-    form.quantity.style.border = "";
-    return false;
   } else {
     form.first.style.border = "2px solid #279e7a";
   }
   if (form.last.value == "" 
   || form.last.value.length < 2) {
-    smallFirst.innerHTML = "";
+    clear();
     smallLast.innerHTML = "Vous devez rentrer votre nom (au minimun 2 lettres)"
-    small.innerHTML = "";
-    smallHb.innerHTML = "";
-    smallQt.innerHTML = "";
-    smallL.innerHTML = "";
-    smallcheck.innerHTML = "";
-    form.first.style.border = "";
     form.last.style.border = "2px solid #fe142f";
-    form.email.style.border = "";
-    form.birthdate.style.border = "";
-    form.quantity.style.border = "";
-
     return false;
   }else {
     form.last.style.border = "2px solid #279e7a";
   }
   if(!checkEmail(email)) {
-    smallFirst.innerHTML = "";
-    smallLast.innerHTML = ""
+    clear();
     small.innerHTML = "Vous devez rentrer une adresse mail valide";
-    smallHb.innerHTML = "";
-    smallQt.innerHTML = "";
-    smallL.innerHTML = "";
-    smallcheck.innerHTML = "";
-    form.first.style.border = "";
-    form.last.style.border = "";
     form.email.style.border = "2px solid #fe142f";
-    form.birthdate.style.border = "";
-    form.quantity.style.border = "";
     return false;
   } else {
     form.email.style.border = "2px solid #279e7a";
   }
   if (form.birthdate.value == "") {
-    smallFirst.innerHTML = "";
-    smallLast.innerHTML = ""
-    small.innerHTML = "";
+    clear();
     smallHb.innerHTML = "Vous devez entrer votre dâte d'anniversaire";
-    smallQt.innerHTML = "";
-    smallL.innerHTML = "";
-    smallcheck.innerHTML = "";
-    form.first.style.border = "";
-    form.last.style.border = "";
-    form.email.style.border = "";
     form.birthdate.style.border = "2px solid #fe142f";
-    form.quantity.style.border = "";
     return false;
   }else {
     form.birthdate.style.border = "2px solid #279e7a";
   }
   if (form.quantity.value == "") {
-    smallFirst.innerHTML = "";
-    smallLast.innerHTML = ""
-    small.innerHTML = "";
-    smallHb.innerHTML = "";
+    clear();
     smallQt.innerHTML = "Vous devez sélectionner une valeur numérique";
-    smallL.innerHTML = "";
-    smallcheck.innerHTML = "";
-    form.first.style.border = "";
-    form.last.style.border = "";
-    form.email.style.border = "";
-    form.birthdate.style.border = "";
     form.quantity.style.border = "2px solid #fe142f";
     return false;
   } else {
     form.quantity.style.border = "2px solid #279e7a";
   }
   if (form.location.value == "" && form.quantity.value !== "0") {
-    smallFirst.innerHTML = "";
-    smallLast.innerHTML = ""
-    small.innerHTML = "";
-    smallHb.innerHTML = "";
-    smallQt.innerHTML = "";
+    clear();
     smallL.innerHTML = "Vous devez choisir une option";
-    smallcheck.innerHTML = "";
     return false;
   }
   if (form.checkbox1.checked == false) {
-    smallFirst.innerHTML = "";
-    smallLast.innerHTML = ""
-    small.innerHTML = "";
-    smallHb.innerHTML = "";
-    smallQt.innerHTML = "";
-    smallL.innerHTML = "";
+    clear(); 
     smallcheck.innerHTML = "Vous devez vérifier que vous acceptez les termes et conditions d'utilisation."
     return false;
   } 
+ 
   if (form.first.value !== "" && 
       form.last.value !== "" && 
       checkEmail(email) && 
@@ -194,3 +151,4 @@ function checkEmail(email) {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
 }
+
