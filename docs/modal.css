@@ -176,7 +176,10 @@ main {
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: rgba(26, 39, 156, 0.4);
+}
+
+@media screen and (max-width: 957px) {
+  
 }
 
 .content {
@@ -192,6 +195,7 @@ main {
   color: #fff;
   padding-top: 10px;
 }
+
 
 .modal-body {
   padding: 15px 8%;

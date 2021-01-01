@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <title>Reservation</title>
@@ -14,21 +14,19 @@
   <body>
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
-      <img alt="logo" src="Logo.png" width="auto" height="auto" />
+        <img alt="logo" src="Logo.png"  />
+      </div>
+      <div class="main-navbar">
+        <a href="#" class="active"><span>Accueil</span></a>
+        <a href="#"><span>Détails de l'évènement</span></a>
+        <a href="#"><span>À propos</span></a>
+        <a href="#"><span>Contact</span></a>
+        <a href="#"><span>Évènements passés</span></a>
+        <a href="javascript:void(0);" class="icon" onclick="editNav()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
     </div>
-    <div class="main-navbar">
-      
-      <a href="#" class="active"><span>Accueil</span></a>
-      <a href="#"><span>Détails de l'évènement</span></a>
-      <a href="#"><span>À propos</span></a>
-      <a href="#"><span>Contact</span></a>
-      <a href="#"><span>Évènements passés</span></a>
-      <a href="javascript:void(0);" class="icon" onclick="editNav()">
-        <i class="fa fa-bars"></i>
-      </a>
-    </div>
-    </div>
-  </div>
     <main>
       <div class="hero-section">
         <div class="hero-content">
@@ -40,7 +38,7 @@
             Vous aimez jouer ? Notre prochain évènement gaming est ouvert
             aux réservations... Places limitées !
           </p>
-          <button class="btn-signup modal-btn">
+          <button class="btn-signup modal-btn" >
             je m'inscris
           </button>
         </div>
@@ -71,8 +69,9 @@
                   type="text"
                   id="first"
                   name="first"
-                  
-                /><small></small><br>
+                />
+                <!-- Error input-->
+                <small></small><br>
               </div>
               <div
                 class="formData">
@@ -83,7 +82,6 @@
                   id="last"
                   name="last"
                   />
-
                 <small></small><br>
               </div>
               <div
@@ -105,7 +103,6 @@
                   type="date"
                   id="birthdate"
                   name="birthdate"
-
                 /><small></small><br>
               </div>
               <div
@@ -184,7 +181,6 @@
                   Portland</label
                 >
               </div>
-
               <div
                 class="formData">
                 <input
@@ -195,18 +191,13 @@
                 checked
               />
                 <label class="checkbox1-label" for="checkbox1" >
-              
-            
                 <span  class="checkbox-icon"></span>
                 J'ai lu et accepté les conditions d'utilisation.
                 <br>
                 <span id="vv"></span>
                 <small></small>
               </label>
-               
-               
                 <br>
-              
                 <input 
                   class="checkbox-input"
                   type="checkbox"
@@ -220,11 +211,9 @@
                 <br>
               </div>
               <input
-                class="btn-submit"
+                class="button btn-submit"
                 type="submit"
-                class="button"
-                value="C'est partit"
-              />
+                value="C'est partit" />
             </form>
           </div>
         </div>
